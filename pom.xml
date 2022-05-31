@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example.ratelimiter</groupId>
+    <artifactId>ratelimiter</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1</version>
+    <name>ratelimiter</name>
+    <description>Demo project for Spring Boot</description>
+
+    <modules>
+        <module>config</module>
+        <module>cache</module>
+        <module>core</module>
+        <module>exceptions</module>
+        <module>util</module>
+        <module>api</module>
+        <module>service</module>
+    </modules>
+
+    <properties>
+        <main.basedir>..</main.basedir>
+        <java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <apache.commons.version>3.11</apache.commons.version>
+        <typesafe.version>1.4.0</typesafe.version>
+        <junit.version>4.13.2</junit.version>
+        <maven-compiler-plugin.version>3.0</maven-compiler-plugin.version>
+    </properties>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${apache.commons.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.typesafe</groupId>
+            <artifactId>config</artifactId>
+            <version>${typesafe.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <compilerArgs>
+                        <arg>-Xlint:all,-path</arg>
+                    </compilerArgs>
+                    <fork>true</fork>
+                    <maxmem>512m</maxmem>
+                    <meminitial>256m</meminitial>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
