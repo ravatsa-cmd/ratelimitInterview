@@ -12,6 +12,13 @@
 
     <artifactId>core</artifactId>
     <dependencies>
+
+        <dependency>
+            <groupId>com.example.ratelimiter</groupId>
+            <artifactId>api</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
         <dependency>
             <groupId>com.example.ratelimiter</groupId>
             <artifactId>ratelimiter</artifactId>
@@ -44,9 +51,9 @@
                 <version>${maven-compiler-plugin.version}</version>
                 <inherited>true</inherited>
                 <configuration>
-                    <compilerArgs>
+                    <compilerArguments>
                         <arg>-Xlint:all,-path</arg>
-                    </compilerArgs>
+                    </compilerArguments>
                     <fork>true</fork>
                     <maxmem>512m</maxmem>
                     <meminitial>256m</meminitial>

@@ -18,6 +18,7 @@
         <module>util</module>
         <module>api</module>
         <module>service</module>
+        <module>intelligence</module>
     </modules>
 
     <properties>
@@ -58,9 +59,9 @@
                 <version>${maven-compiler-plugin.version}</version>
                 <inherited>true</inherited>
                 <configuration>
-                    <compilerArgs>
+                    <compilerArguments>
                         <arg>-Xlint:all,-path</arg>
-                    </compilerArgs>
+                    </compilerArguments>
                     <fork>true</fork>
                     <maxmem>512m</maxmem>
                     <meminitial>256m</meminitial>

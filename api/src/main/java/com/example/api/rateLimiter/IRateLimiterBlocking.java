@@ -1,8 +1,8 @@
-package com.sample.ratelimiter;
+package com.example.api.rateLimiter;
 
-public interface IRateLimiter
+public interface IRateLimiterBlocking extends IRateLimiter
 {
-    public static long WAIT_IMPOSSIBLE = Long.MAX_VALUE;
+    void waitForLimit (double noOfTokens) throws InterruptedException;
 
     boolean consumeNoOfTokens ();
 

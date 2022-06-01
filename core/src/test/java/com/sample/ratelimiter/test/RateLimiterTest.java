@@ -1,8 +1,8 @@
 package com.sample.ratelimiter.test;
 
-import com.sample.ratelimiter.ITimeSource;
+import com.example.api.rateLimiter.IRateLimiter;
+import com.example.api.rateLimiter.ITimeSource;
 import com.sample.ratelimiter.TimeSourceZero;
-import com.sample.ratelimiter.IRateLimiter;
 import com.sample.ratelimiter.RateLimiterTokenBucket;
 import com.sample.ratelimiter.TimeSourceAdjustable;
 import org.junit.Assert;

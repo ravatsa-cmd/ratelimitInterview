@@ -1,5 +1,7 @@
 package com.sample.ratelimiter;
 
+import com.example.api.rateLimiter.IRateLimiter;
+
 import java.util.Objects;
 import java.util.function.Function;
 
@@ -13,7 +15,7 @@ import java.util.function.Function;
  * If the bucket has more than 0 tokens, take a single token, and allow the request.
  * Else, reject the request
  */
-public class RateLimiter_Dummy
+public class RateLimiterLeakyBucket
 {
     public Function<Integer, Integer> wrap (Function<Integer, Integer> function)
     {

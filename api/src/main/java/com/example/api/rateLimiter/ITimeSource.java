@@ -1,4 +1,4 @@
-package com.sample.ratelimiter;
+package com.example.api.rateLimiter;
 
 public interface ITimeSource
 {

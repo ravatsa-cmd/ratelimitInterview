@@ -1,5 +1,7 @@
 package com.sample.ratelimiter;
 
+import com.example.api.rateLimiter.ITimeSource;
+
 public final class TimeSourceAdjustable implements ITimeSource
 {
 

@@ -17,7 +17,6 @@ public class RateLimiter
     public static void main (String[] args)
     {
         Config conf = ConfigFactory.load("application");
-        ApplicationConfig appConfig = new ApplicationConfig(conf);
         Function<Integer, Integer> square = new Function<Integer, Integer>()
         {
             @Override public Integer apply (Integer integer)
