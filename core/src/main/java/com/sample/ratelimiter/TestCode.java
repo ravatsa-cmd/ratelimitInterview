@@ -5,6 +5,9 @@ import com.example.api.rateLimiter.IRateLimiter;
 import java.util.Objects;
 import java.util.function.Function;
 
+/**
+ * This is some test code.
+ */
 public class TestCode
 {
     public Function<Integer, Integer> wrap (Function<Integer, Integer> function)

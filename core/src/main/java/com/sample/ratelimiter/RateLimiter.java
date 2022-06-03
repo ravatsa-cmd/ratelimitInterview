@@ -2,15 +2,19 @@ package com.sample.ratelimiter;
 
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 /**
- * Main class for Rate limiter service.
+ * A class to implement the rateLimiter service.
+ * Intentionally kep it as a separate main class in case some demos are required.
  */
 public class RateLimiter
 {
+    private static Logger logger = LoggerFactory.getLogger(RateLimiter.class);
 
     public static final long WINDOW_SIZE_IN_MIN = TimeUnit.MINUTES.toMillis(5);
 
@@ -37,10 +41,10 @@ public class RateLimiter
         while (sleepTime <= WINDOW_SIZE_IN_MIN) {
             Function<Integer, Integer> rateLimitedSquare = rateLimitService.wrap(square);
             Integer sq = rateLimitedSquare.apply(count);
-            RateLimitService.logMessages(String.format("%d is the square of %d", sq, count));
+            logger.info(String.format("%d is the square of %d", sq, count));
             count++;
             sleepTime *= 2;
-            RateLimitService.logMessages(String.format("Sleeping for %d seconds",
+            logger.info(String.format("Sleeping for %d seconds",
                 sleepTime / 1000));
             try {
                 Thread.sleep(sleepTime);

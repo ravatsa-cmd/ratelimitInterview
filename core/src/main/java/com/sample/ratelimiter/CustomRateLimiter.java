@@ -1,6 +1,8 @@
 package com.sample.ratelimiter;
 
 import com.example.api.rateLimiter.GenericRateLimiter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -12,6 +14,8 @@ import java.util.Queue;
  */
 public class CustomRateLimiter extends GenericRateLimiter
 {
+    private static Logger logger = LoggerFactory.getLogger(CustomRateLimiter.class);
+
     private static final Object Lock = new Object();
 
     private static Map<String, Queue<Long>> holder = new HashMap<>();
@@ -21,12 +25,12 @@ public class CustomRateLimiter extends GenericRateLimiter
     public void hitAPI (String key, long timeStamp)
     {
         if (isAllowed(key, timeStamp)) {
-            System.out.printf(String.format(
+            logger.info(String.format(
                 "There was a hit at :: %d in millis.",
                 timeStamp));
         }
         else {
-            System.out.printf(String.format(
+            logger.info(String.format(
                 "API's are blocked at :: %d in millis.",
                 timeStamp));
         }

@@ -4,6 +4,8 @@ import com.example.api.rateLimiter.ABCRequest;
 import com.example.api.rateLimiter.RestService;
 import com.example.api.rateLimiter.messages.ABCResponse;
 import com.example.api.rateLimiter.messages.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,7 @@ import java.util.Set;
 @RequestMapping("/someContext")
 public class ServiceClass
 {
+    private static Logger logger = LoggerFactory.getLogger(ServiceClass.class);
 
     @Autowired RestService restService;
 

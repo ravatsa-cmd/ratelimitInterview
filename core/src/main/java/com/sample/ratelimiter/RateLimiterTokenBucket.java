@@ -2,6 +2,8 @@ package com.sample.ratelimiter;
 
 import com.example.api.rateLimiter.IRateLimiter;
 import com.example.api.rateLimiter.ITimeSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The token bucket algorithm can be used for this purpose.
@@ -15,6 +17,8 @@ import com.example.api.rateLimiter.ITimeSource;
  */
 public class RateLimiterTokenBucket implements IRateLimiter
 {
+
+  private static Logger logger = LoggerFactory.getLogger(RateLimiterTokenBucket.class);
 
   private double ratePerMillis;
   private double maxNoOfTokens;

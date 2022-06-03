@@ -1,5 +1,8 @@
 package com.sample.ratelimiter;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
@@ -31,6 +34,7 @@ import java.util.function.Function;
  */
 public class RateLimitService
 {
+    private static Logger logger = LoggerFactory.getLogger(RateLimitService.class);
 
     public static final long SECOND_IN_MILLIS = TimeUnit.SECONDS.toMillis(1);
     private static final long MINUTE_IN_MILLIS = TimeUnit.MINUTES.toMillis(1);
@@ -174,7 +178,7 @@ public class RateLimitService
             return;
         }
 
-        System.out.println(message);
+        logger.info(message);
     }
 
     /**
